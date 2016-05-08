@@ -1,0 +1,29 @@
+body {
+  background: #fff;
+  height: 100vh;
+  overflow: hidden;
+}
+
+.rorschach {
+  width: 100%;
+  height: 100%;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+}
+  .canvas {
+    -webkit-filter: url(#goo);
+    filter: url(#goo);
+
+  }
+  .canvas:last-child {
+    transform: scaleX(-1);
+  }
+
+svg {
+  height: 0;
+/*  fill: red;*/
+}
+ctx {
+  fill: red !important;
+}

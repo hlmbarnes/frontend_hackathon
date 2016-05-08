@@ -1,0 +1,33 @@
+<!DOCTYPE html>
+<html>
+<head>
+  <title>The Rorschach Social Expreience</title>
+  <link href = "main.css " rel = "stylesheet">
+  <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.6/css/bootstrap.min.css">
+</head>
+<body>
+<h1>The Rorschach Social Experience</h1>
+  <div class="rorschach">
+    <canvas class="canvas" id="left" width="300" height="600"></canvas>
+    <canvas class="canvas" id="right"></canvas>
+  </div>
+
+  <svg xmlns="http://www.w3.org/2000/svg" version="1.1">
+    <defs>
+     <!--  <filter id="goo">
+        <feGaussianBlur in="SourceGraphic" stdDeviation="6" result="blur" />
+        <feGaussianBlur in="SourceGraphic" stdDeviation="6" result="blur" />
+      
+        <!<feColorMatrix in="blur" mode="matrix" values="1 0 0 0 0  0 1 0 0 0  0 0 1 0 0  0 0 0 19 -9" result="goo" />
+        <feComposite in="SourceGraphic" in2="goo" operator="atop"/>
+      </filter> --> -->
+    </defs>
+  </svg>
+  <div class="button">
+    <button type="button" class="btn btn-default">Save Image</button>
+  </div>
+    <script src="https://ajax.googleapis.com/ajax/libs/jquery/2.2.0/jquery.min.js"></script>
+    <script src="style.js"></script>
+    <script src="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.6/js/bootstrap.min.js"></script>
+</body>
+</html>
