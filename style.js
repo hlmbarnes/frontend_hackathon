@@ -86,17 +86,17 @@ function draw() {
       }
     })
     
-    function getRandomInt(0, 7) {
-    return Math.floor(Math.random() * 8);
-    }
+    // function getRandomInt(0, 7) {
+    // return Math.floor(Math.random() * 8);
+    // }
 
     var colors = ['#2d2d86', '#262673', '#202060', '#19194d', '#131339', '#0d0d26', '#060613', '#000000'];
 
     ctx1.fill()
     ctx2.fill()
-    setInterval(function(){
-      ctx1.fillStyle = colors[parseInt(getRandomInt)]
-    }, 5000)
+    // setInterval(function(){
+    //   ctx1.fillStyle = colors[parseInt(getRandomInt)]
+    // }, 5000)
 
     ctx1.closePath()
     ctx2.closePath()
