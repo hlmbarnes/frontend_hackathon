@@ -198,15 +198,18 @@ function animate() {
 
 startAnimating(.3)
 
-// .then($(".button").click(function() {
-//  var canvas = document.getElementById('ink_blot');
-// var context = canvas.getContext('Rorschach');  
-// alert("HEY");
-//   const dataURL = canvas.toDataURL();
-//   document.getElementById('ink_blot').href = dataURL;
-// });
-// ){
-// }
+.then($(".button").click(function() {
+ const canvas1 = $(".left");
+ const canvas2 = $(".right");
+ const context = canvas.getContext('2d');  
+ alert("HEY");
+
+
+ const dataURL = canvas1.toDataURL();
+ $("#ink_blot").attr('href') = dataURL;
+
+  });
+}
   
 
   

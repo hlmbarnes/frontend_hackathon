@@ -3,6 +3,7 @@ body {
 /*  background-image: url("paper.jpg");*/
  /* height: 100vh;*/
   /*overflow: hidden;*/
+  align-content: center;
 }
 
 .rorschach {
@@ -18,7 +19,7 @@ body {
     filter: url(#goo);
 
   }
-  
+
 .canvas:last-child {
     transform: scaleX(-1);
   }
