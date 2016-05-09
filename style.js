@@ -1,8 +1,21 @@
+$(document).ready(function(){
+  $('#button').hover(
+    function(){
+      var $this = $(this);
+      $this.data('bgcolor', $this.css('background-color')).css('background-color', '#262673');
+      $this.data('color', $this.css('color')).css('color', 'white');
+    },
+    function(){
+      var $this = $(this);
+      $this.css('background-color', $this.data('bgcolor'));
+      $this.css('color', $this.data('color'));
+    }
+  ); 
+})
+
+
 const c1 = document.querySelector("#left")
 const c2 = document.querySelector("#right")
-
-
-
 
 const width = c1.width
 const height = c1.height
@@ -196,29 +209,25 @@ function animate() {
     }
 }
 
-startAnimating(.3)
+startAnimating(.15)
 
 $(".btn").click(function() {
- var canvas1 = $(".left");
- var canvas2 = $(".right");
+ var canvas1 = $("#left").get(0);
+ var canvas2 = $("#right");
  // var context = canvas1.getContext('2d');
  alert("HEY");
 
 
  var dataURL = canvas1.toDataURL();
- $("#ink_blot").attr('href') = dataURL;
+ $("#Rorschach").attr('.canvas') = dataURL;
+});
 
-}
-);
+
+
+
   
 
   
  
 
 
-
-// $(".button").click(function() {
-// //   alert("HEY");
-//   const dataURL = canvas.toDataURL();
-//   document.getElementById('ink_blot').href = dataURL;
-// });
