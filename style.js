@@ -223,26 +223,21 @@ startAnimating(.15)
 // });
 
 function downloadCanvas(link, canvasId, filename) {
-  canvas = $(canvasId).get(0);
-
-  var dataURL = canvas.toDataURL();
-    link.href = dataURL;
-    link.download = filename;
+  var canvas = $(canvasId).get(0);
+  var dataURL = canvas.toDataURL();
+  link.href = dataURL;
+  link.download = filename;
 };
 
 
 
-$(".btn").click(function() {
-  var dwnload = $("#download").get(0);
-  dwnload.click();
-
-  });
-  
-$("#download").click(function() {
-downloadCanvas(this, '#left', 'test.png');
-
+$("#button").click(function() {
+  var dwnload = $("#link").get(0);
+  dwnload.click();
 });
-  
+$("#link").click(function() {
+  downloadCanvas(this, '#left', 'test.png');
+});
 
 
 
