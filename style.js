@@ -26,13 +26,15 @@ const maxLength = 90
 const minV = .4
 const maxV = .5
 const spotNumber = 15
+spots = []
+length = 0;
 
 const clamp = (n, min, max) => Math.min(Math.max(n, min), max)
 
-const spots = Array.from({ length: spotNumber }).map(() => {
-  const length = clamp(Math.random() * maxLength, minLength, maxLength)
-  return new Spot(Math.round(length))
-})
+// const spots = Array.from({ length: spotNumber }).map(() => {
+//   const length = clamp(Math.random() * maxLength, minLength, maxLength)
+//   return new Spot(Math.round(length))
+// })
 console.log(spots);
 
 function Spot(length) {
@@ -57,7 +59,10 @@ function Spot(length) {
 function draw() {
   ctx1.clearRect(0, 0, width, height)
   ctx2.clearRect(0, 0, width, height)
-  
+  spots = Array.from({ length: spotNumber }).map(() => {
+   length = clamp(Math.random() * maxLength, minLength, maxLength)
+  return new Spot(Math.round(length))
+})
   spots.forEach((spot) => {
 
     ctx1.beginPath()
@@ -104,11 +109,87 @@ function getRandomInt() {
       var color = colors[getRandomInt()];
       ctx1.fillStyle = color;
       ctx2.fillStyle = color;
-    }, 5000)
+    }, 1000)
 
 function update() {
   draw()
   requestAnimationFrame(update)
 }
+var stop=false;
+var frameCount=0;
+var $results=$("#results");
+var fps,fpsInterval,startTime,now,then,elapsed;
 
-update()
+
+// initialize the timer variables and start the animation
+
+function startAnimating(fps){
+    fpsInterval=1000/fps;
+    then=Date.now();
+    startTime=then;
+    animate();
+}
+function animate() {
+
+    // request another frame
+
+    requestAnimationFrame(animate);
+
+    // calc elapsed time since last loop
+
+    now = Date.now();
+    elapsed = now - then;
+
+    // if enough time has elapsed, draw the next frame
+
+    if (elapsed > fpsInterval) {
+
+        // Get ready for next frame by setting then=now, but also adjust for your
+        // specified fpsInterval not being a multiple of RAF's interval (16.7ms)
+        then = now - (elapsed % fpsInterval);
+
+        // Put your drawing code here
+      ctx1.clearRect(0, 0, width, height)
+      ctx2.clearRect(0, 0, width, height)
+      spots = Array.from({ length: spotNumber }).map(() => {
+       length = clamp(Math.random() * maxLength, minLength, maxLength)
+      return new Spot(Math.round(length))
+    })
+      spots.forEach((spot) => {
+
+        ctx1.beginPath()
+        ctx2.beginPath()
+        
+        spot.points.forEach(({ x, y }, i) => {
+          let vx = clamp(Math.random() * maxV, minV, maxV)
+          let vy = clamp(Math.random() * maxV, minV, maxV)
+          
+          if (Math.random() > .5) {
+            vx = -vx
+            vy = -vy
+          }
+          
+          x = clamp(x + vx, 0, width)
+          y = clamp(y + vy, 0, height)
+          
+          spot.setPoint(i, { x, y })
+          
+          if (i === 0) {
+            ctx1.moveTo(x, y)
+            ctx2.moveTo(x, y)
+          } else {
+            ctx1.lineTo(x, y)
+            ctx2.lineTo(x, y)
+          }
+        })
+        
+       
+        ctx1.fill()
+        ctx2.fill()
+        ctx1.closePath()
+        ctx2.closePath()
+      })
+
+    }
+}
+startAnimating(.3)
