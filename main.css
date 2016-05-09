@@ -22,8 +22,5 @@ body {
 
 svg {
   height: 0;
-/*  fill: red;*/
 }
-ctx {
-  fill: red !important;
-}
+

@@ -12,17 +12,17 @@ const ctx2 = c2.getContext("2d")
 
 // ctx1.style.transition = "fill 5s ease"
 // ctx2.style.transition = "fill 5s ease"
-ctx1.fillStyle = "green"
+ctx1.fillStyle = "black"
 ctx2.fillStyle = "black"
 
 // ctx1.set
 
 
 
-const minRadius = 20
-const maxRadius = 60
-const minLength = 50
-const maxLength = 100
+const minRadius = 15
+const maxRadius = 80
+const minLength = 45
+const maxLength = 90
 const minV = .4
 const maxV = .5
 const spotNumber = 15
@@ -45,8 +45,8 @@ function Spot(length) {
     y: clamp(Math.random() * height, this.radius, height - this.radius),
   }
   this.points = Array.from({ length }).map((_, index) => ({
-    x: this.start.x + this.radius * Math.cos(index * a) + Math.random() * 20,
-    y: this.start.y + this.radius * Math.sin(index * a) + Math.random() * 20,
+    x: this.start.x + this.radius * Math.cos(index * a) + Math.random() * 15,
+    y: this.start.y + this.radius * Math.sin(index * a) + Math.random() * 15,
   }))
   
   this.setPoint = (index, point) => {
@@ -86,22 +86,25 @@ function draw() {
       }
     })
     
-    // function getRandomInt(0, 7) {
-    // return Math.floor(Math.random() * 8);
-    // }
-
-    var colors = ['#2d2d86', '#262673', '#202060', '#19194d', '#131339', '#0d0d26', '#060613', '#000000'];
-
+   
     ctx1.fill()
     ctx2.fill()
-    // setInterval(function(){
-    //   ctx1.fillStyle = colors[parseInt(getRandomInt)]
-    // }, 5000)
-
     ctx1.closePath()
     ctx2.closePath()
   })
 }
+
+function getRandomInt() {
+      return Math.floor(Math.random() * 7);
+    }
+
+    const colors = ['#2d2d86', '#262673', '#202060', '#19194d', '#131339', '#0d0d26', '#060613', '#000000'];
+
+    setInterval(function(){
+      var color = colors[getRandomInt()];
+      ctx1.fillStyle = color;
+      ctx2.fillStyle = color;
+    }, 5000)
 
 function update() {
   draw()
