@@ -1,6 +1,9 @@
 const c1 = document.querySelector("#left")
 const c2 = document.querySelector("#right")
 
+
+
+
 const width = c1.width
 const height = c1.height
 
@@ -115,9 +118,9 @@ function update() {
   draw()
   requestAnimationFrame(update)
 }
-var stop=false;
-var frameCount=0;
-var $results=$("#results");
+var stop = false;
+var frameCount = 0;
+var $results = $("#results");
 var fps,fpsInterval,startTime,now,then,elapsed;
 
 
@@ -192,4 +195,27 @@ function animate() {
 
     }
 }
+
 startAnimating(.3)
+
+// .then($(".button").click(function() {
+//  var canvas = document.getElementById('ink_blot');
+// var context = canvas.getContext('Rorschach');  
+// alert("HEY");
+//   const dataURL = canvas.toDataURL();
+//   document.getElementById('ink_blot').href = dataURL;
+// });
+// ){
+// }
+  
+
+  
+ 
+
+
+
+// $(".button").click(function() {
+// //   alert("HEY");
+//   const dataURL = canvas.toDataURL();
+//   document.getElementById('ink_blot').href = dataURL;
+// });
