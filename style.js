@@ -227,6 +227,18 @@ function downloadCanvas(link, canvasId, filename) {
   var dataURL = canvas.toDataURL();
   link.href = dataURL;
   link.download = filename;
+
+  // function downloadCanvas(link) {
+  // var canvasL = $("#left").get(0);
+  // var canvasR = $("#right").get(0);
+  // var canvasBoth = $("#combined").get(0);
+  // var ctx = canvasBoth.getContext('2d');
+  // ctx.drawImage(canvasL, 0, 0);
+  // ctx.drawImage(canvasR, 0, 310);
+  // var dataURL = canvasBoth.toDataURL();
+  // link.href = dataURL;
+  // link.download = 'saveImage.png';
+// };
 };
 
 
