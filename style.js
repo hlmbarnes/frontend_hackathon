@@ -211,16 +211,39 @@ function animate() {
 
 startAnimating(.15)
 
+// $(".btn").click(function() {
+//  var canvas1 = $("#left").get(0);
+//  var canvas2 = $("#right");
+//  // var context = canvas1.getContext('2d');
+//  alert("HEY");
+
+
+//  var dataURL = canvas1.toDataURL();
+//  $("#Rorschach").attr('.canvas') = dataURL;
+// });
+
+function downloadCanvas(link, canvasId, filename) {
+  canvas = $(canvasId).get(0);
+
+  var dataURL = canvas.toDataURL();
+    link.href = dataURL;
+    link.download = filename;
+};
+
+
+
 $(".btn").click(function() {
- var canvas1 = $("#left").get(0);
- var canvas2 = $("#right");
- // var context = canvas1.getContext('2d');
- alert("HEY");
+  var dwnload = $("#download").get(0);
+  dwnload.click();
 
+  });
+  
+$("#download").click(function() {
+downloadCanvas(this, '#left', 'test.png');
 
- var dataURL = canvas1.toDataURL();
- $("#Rorschach").attr('.canvas') = dataURL;
 });
+  
+
 
 
 

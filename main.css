@@ -1,6 +1,7 @@
 body {
 /*  background: #fff;*/
-/*  background-image: url("paper.jpg");*/
+  background-image: url("ink.jpeg");
+  background-repeat: no-repeat;
   height: 750px;
   /*overflow: hidden;*/
   align-content: center;
