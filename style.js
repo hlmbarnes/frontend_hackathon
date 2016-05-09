@@ -198,18 +198,18 @@ function animate() {
 
 startAnimating(.3)
 
-.then($(".button").click(function() {
- const canvas1 = $(".left");
- const canvas2 = $(".right");
- const context = canvas.getContext('2d');  
+$(".btn").click(function() {
+ var canvas1 = $(".left");
+ var canvas2 = $(".right");
+ // var context = canvas1.getContext('2d');
  alert("HEY");
 
 
- const dataURL = canvas1.toDataURL();
+ var dataURL = canvas1.toDataURL();
  $("#ink_blot").attr('href') = dataURL;
 
-  });
 }
+);
   
 
   
